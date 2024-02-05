@@ -29,6 +29,7 @@ const PokemonDetail: React.FC<PokemonDetailProps> = ({ pokemonName }) => {
         <p>Type: {pokemonData.types.map((type: any) => type.type.name).join(', ')}</p>
          <p>Gender: {pokemonData.gender_rate === -1 ? 'Genderless' : 'Male/Female'}</p>
         <AbilityList abilities={pokemonData.abilities} />
+      
     </div>
   );
 };
