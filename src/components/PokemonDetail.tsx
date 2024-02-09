@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {ApiService} from '../services/apiServices'
 import AbilityList from './AbilityList';
+import PokemonLocation from './PokemonLocation';
 
 interface PokemonDetailProps {
     pokemonName: string;
@@ -26,10 +27,11 @@ const PokemonDetail: React.FC<PokemonDetailProps> = ({ pokemonName }) => {
   return (
     <div>
         <h2>{pokemonName?`Details for ${pokemonName}` : 'No Pokemon selected'}</h2>
+        <img src={pokemonData.imageUrl} alt={pokemonName} />
         <p>Type: {pokemonData.types.map((type: any) => type.type.name).join(', ')}</p>
          <p>Gender: {pokemonData.gender_rate === -1 ? 'Genderless' : 'Male/Female'}</p>
         <AbilityList abilities={pokemonData.abilities} />
-      
+        <PokemonLocation pokemonName={pokemonName} /> {/* Ensure pokemonName is defined */}
     </div>
   );
 };

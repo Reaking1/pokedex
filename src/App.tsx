@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Routes, useParams} from 'react-ro
 import PokemonList from './components/PokemonList';
 import PokemonDetail from './components/PokemonDetail';
 import AbilityList from './components/AbilityList';
+import PokemonLocation from './components/PokemonLocation';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <Route path="/pokemon/:name" element={<PokemonDetailWrapper />} />
           <Route path='/pokemon/ability' element={<AbilityList abilities={[]}/>} />
           <Route path="/" element={<PokemonList />} />
+          <Route path='/pokemon/location' element={<PokemonLocation pokemonName=''/>} />
           
         </Routes>
       </div>

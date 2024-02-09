@@ -1,36 +1,37 @@
-import React,{ useEffect, useState } from 'react'
-import { ApiService } from '../services/apiServices'
+// PokemonLocation.tsx
+import React, { useEffect, useState } from 'react';
+import { ApiService } from '../services/apiServices';
 
 interface PokemonLocationProps {
-    pokemonName: string
+    pokemonName: string;
 }
 
-
-const PokemonLocation: React.FC<PokemonLocationProps> = ({ pokemonName}) => {
-    const [locationData, setLoctionData] = useState<any>(null)
+const PokemonLocation: React.FC<PokemonLocationProps> = ({ pokemonName }) => {
+    const [locationData, setLocationData] = useState<any>(null);
 
     useEffect(() => {
         const fetchLocationData = async () => {
             try {
                 const res = await ApiService.fetchPokemonLocationAndRegion(pokemonName);
-                setLoctionData(res)
+                setLocationData(res);
             } catch (error) {
-                console.log('Error fecthing Pokemon Loaction:', error)
+                console.log('Error fetching Pokemon Location:', error);
+                setLocationData({ locationName: 'Error fetching location' });
             }
         };
         fetchLocationData();
     }, [pokemonName]);
 
-    if(!locationData) {
-        return <div>Loading location data...</div>
+    if (!locationData) {
+        return <div>Loading location data...</div>;
     }
 
     return (
-       <div>
-         <h2>{pokemonName?`Loaction for ${pokemonName}` : 'No Pokemon selected'}</h2>
-        <p>Location: {locationData.locationName}</p>
-       </div>
-    )
-}
+        <div>
+            <h2>{pokemonName ? `Location for ${pokemonName}` : 'No Pokemon selected'}</h2>
+            <p>Location: {locationData.locationName}</p>
+        </div>
+    );
+};
 
-export default PokemonLocation
+export default PokemonLocation;

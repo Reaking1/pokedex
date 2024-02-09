@@ -7,12 +7,19 @@ export const ApiService = {
     },
 
     fetchPokemonDetails: async (pokemonName: string) => {
-        const res = await fetch(`${API_URL}/pokemon/${pokemonName}`)
-        return res.json()
+        const res = await fetch(`${API_URL}/pokemon/${pokemonName}`);
+        const data = await res.json();
+
+        //Extract the image URL from the res data
+        const imageUrl = data.sprites.front_default;
+
+        //Return res data along the image URL
+        return { ...data, imageUrl};
+        
     },
 
     fetchPokemonLocationAndRegion: async (pokemonName: string) => {
-        const res = await fetch(`/pokemon/${pokemonName}/encounters`);
+      const res = await fetch(`${API_URL}/pokemon/${pokemonName}/encounters`); // Added API base URL
         
         // Extracting locations and regions
         const encounters = await res.json();
