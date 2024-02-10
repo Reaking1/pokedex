@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {ApiService} from '../services/apiServices'
 import AbilityList from './AbilityList';
 import PokemonLocation from './PokemonLocation';
+import '../App.css'
 
 interface PokemonDetailProps {
     pokemonName: string;
@@ -14,6 +15,7 @@ const PokemonDetail: React.FC<PokemonDetailProps> = ({ pokemonName }) => {
     const [pokemonData, setPokemonData] = useState<any>(null);
   useEffect(() => {
     const fetchData = async () => {
+      if(!pokemonName) return;
         const res = await ApiService.fetchPokemonDetails(pokemonName);
         setPokemonData(res);
        }
@@ -27,7 +29,7 @@ const PokemonDetail: React.FC<PokemonDetailProps> = ({ pokemonName }) => {
   return (
     <div>
         <h2>{pokemonName?`Details for ${pokemonName}` : 'No Pokemon selected'}</h2>
-        <img src={pokemonData.imageUrl} alt={pokemonName} />
+        <img src={pokemonData.imageUrl} alt={pokemonName} key={pokemonName}/>
         <p>Type: {pokemonData.types.map((type: any) => type.type.name).join(', ')}</p>
          <p>Gender: {pokemonData.gender_rate === -1 ? 'Genderless' : 'Male/Female'}</p>
         <AbilityList abilities={pokemonData.abilities} />

@@ -1,0 +1,17 @@
+/* PokemonList.css */
+.pokemon-link {
+    font-size: 20px; /* Adjust font size */
+    text-decoration: none;
+    color: #ffff;
+}
+
+.list-group-item {
+    transition: transform 0.3s ease; /* Add transition for hover effect */
+    padding: 0;
+    list-style-type: none;
+}
+
+.list-group-item:hover {
+    transform: scale(1.05); /* Scale up on hover */
+  
+}

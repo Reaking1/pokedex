@@ -16,7 +16,7 @@ const PokemonLocation: React.FC<PokemonLocationProps> = ({ pokemonName }) => {
                 setLocationData(res);
             } catch (error) {
                 console.log('Error fetching Pokemon Location:', error);
-                setLocationData({ locationName: 'Error fetching location' });
+                setLocationData({ locations: [], regions: [] }); // Set default values if error occurs
             }
         };
         fetchLocationData();
@@ -29,7 +29,8 @@ const PokemonLocation: React.FC<PokemonLocationProps> = ({ pokemonName }) => {
     return (
         <div>
             <h2>{pokemonName ? `Location for ${pokemonName}` : 'No Pokemon selected'}</h2>
-            <p>Location: {locationData.locationName}</p>
+            <p>Locations: {locationData.locations ? locationData.locations.join(', ') : 'None'}</p>
+            <p>Regions: {locationData.regions ? locationData.regions.join(', ') : 'None'}</p>
         </div>
     );
 };

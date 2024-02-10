@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import {ApiService} from '../services/apiServices'
 import { Link } from 'react-router-dom';
+import './styles/PokemonList.css'
 
 const PokemonList: React.FC = () => {
     const [pokemonList, setPokemonList] = useState<string[]>([]);
@@ -18,11 +19,11 @@ const PokemonList: React.FC = () => {
     return (
         <div>
             <h2>Pokkemon List</h2>
-            <ul>
+            <ul className='list-group'>
                 {pokemonList.map((pokemonName) => (
-                    <li key={pokemonName}>
+                    <li key={pokemonName} className='list-group-item'>
                              {/* Use Link to make the Pokemon name clickable */}
-            <Link to={`/pokemon/${pokemonName}`}>{pokemonName}</Link>
+            <Link to={`/pokemon/${pokemonName}`} className='pokemon-link'>{pokemonName}</Link>
                     </li>
                 )
                 )}

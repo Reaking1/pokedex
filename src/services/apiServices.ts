@@ -10,11 +10,19 @@ export const ApiService = {
         const res = await fetch(`${API_URL}/pokemon/${pokemonName}`);
         const data = await res.json();
 
+
         //Extract the image URL from the res data
         const imageUrl = data.sprites.front_default;
 
-        //Return res data along the image URL
-        return { ...data, imageUrl};
+
+        //Extract the image encounetrs to get the location
+        const encountersRes = await fetch(`${API_URL}/pokemon/${pokemonName}/encounters`)
+      const encounterData = await encountersRes.json();
+
+      //Extract the locations from the encounters data
+      const locations = encounterData.map((encounter: any) => encounter.location_area.name)
+        //Return res data along the image URL and location
+        return { ...data, imageUrl, locations};
         
     },
 
