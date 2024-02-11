@@ -2,7 +2,11 @@
 .pokemon-link {
     font-size: 20px; /* Adjust font size */
     text-decoration: none;
-    color: #ffff;
+    color: #131212;
+    margin: 30px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .list-group-item {

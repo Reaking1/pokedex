@@ -1,6 +1,7 @@
 // PokemonLocation.tsx
 import React, { useEffect, useState } from 'react';
 import { ApiService } from '../services/apiServices';
+import './styles/PokemonDetails.css'
 
 interface PokemonLocationProps {
     pokemonName: string;
@@ -27,8 +28,8 @@ const PokemonLocation: React.FC<PokemonLocationProps> = ({ pokemonName }) => {
     }
 
     return (
-        <div>
-            <h2>{pokemonName ? `Location for ${pokemonName}` : 'No Pokemon selected'}</h2>
+        <div className='location footer'>
+            <h2 className='footer-head'>{pokemonName ? `Location for ${pokemonName}` : 'No Pokemon selected'}</h2>
             <p>Locations: {locationData.locations ? locationData.locations.join(', ') : 'None'}</p>
             <p>Regions: {locationData.regions ? locationData.regions.join(', ') : 'None'}</p>
         </div>

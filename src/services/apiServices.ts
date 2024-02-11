@@ -2,7 +2,7 @@ const API_URL = 'https://pokeapi.co/api/v2';
 
 export const ApiService = {
     fetchPokemonList: async () => {
-        const res = await fetch(`${API_URL}/pokemon?limit=30`);
+        const res = await fetch(`${API_URL}/pokemon?limit=100`);
         return res.json()
     },
 

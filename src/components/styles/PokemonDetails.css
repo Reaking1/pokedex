@@ -1,0 +1,54 @@
+.header-one,
+.list-style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    position: relative; /* Add position relative */
+}
+
+
+.list-style {
+    list-style-type: none;
+    flex-direction: column;
+}
+
+.list-style li {
+    padding: 5px; /* Add padding for spacing */
+    transition: background-color 0.3s ease; /* Add transition for smooth effect */
+    border-bottom: 1px solid #ccc; /* Add border to each list item */
+}
+
+.list-style li:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+    border-radius: 10px;
+    cursor: pointer; /* Add pointer cursor on hover */
+}
+
+.list-style li:not(:last-child) {
+    border-bottom: none; /* Remove border from last list item */
+}
+
+
+/*Image */
+.container {
+    text-align: center; /* Center align content */
+}
+
+.pokemon-image {
+    width: 200px; /* Set image width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Add margin for spacing */
+}
+
+
+/**footer*/
+
+.footer {
+    margin: 30px 50px;
+}
