@@ -1,35 +1,36 @@
-import React, { useState, useEffect} from 'react'
-import {ApiService} from '../services/apiServices'
+import React, { useState, useEffect } from 'react';
+import { ApiService } from '../services/apiServices';
 import { Link } from 'react-router-dom';
-import './styles/PokemonList.css'
+import './styles/PokemonList.css';
 
 const PokemonList: React.FC = () => {
     const [pokemonList, setPokemonList] = useState<string[]>([]);
 
     useEffect(() => {
-        //Fecth and set the lsit of Pokemon from API
+        // Fetch and set the list of Pokémon from API
         const fetchData = async () => {
             const response = await ApiService.fetchPokemonList();
-            setPokemonList(response.results.map((pokemon: any) => pokemon.name))
+            setPokemonList(response.results.map((pokemon: any) => pokemon.name));
         };
         fetchData();
     }, []);
 
-
     return (
-        <div>
-            <h2>Pokkemon List</h2>
-            <ul className='list-group'>
+        <div className="pokemon-list-container">
+            <h2>Pokémon List</h2>
+            <div className="d-flex flex-wrap">
+                {/* Wrap each Pokémon name with a flex container */}
                 {pokemonList.map((pokemonName) => (
-                    <li key={pokemonName} className='list-group-item'>
-                             {/* Use Link to make the Pokemon name clickable */}
-            <Link to={`/pokemon/${pokemonName}`} className='pokemon-link'>{pokemonName}</Link>
-                    </li>
-                )
-                )}
-            </ul>
+                    <div key={pokemonName} className="pokemon-box">
+                        {/* Use Link to make the Pokémon name clickable */}
+                        <Link to={`/pokemon/${pokemonName}`} className="pokemon-link">{pokemonName}</Link>
+                     
+                    </div>
+                ))}
+            </div>
         </div>
-    )
-}
+    );
+};
 
-export default PokemonList
+export default PokemonList;
+
