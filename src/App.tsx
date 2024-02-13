@@ -5,13 +5,15 @@ import PokemonList from './components/PokemonList';
 import PokemonDetail from './components/PokemonDetail';
 import AbilityList from './components/AbilityList';
 import PokemonLocation from './components/PokemonLocation';
+import './App.css'
+
 
 const App: React.FC = () => {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
+        <nav className='nav-bar'>
+          <ul className='nav-ul'>
             <li>
               <Link to="/">Home</Link>
             </li>

@@ -2,5 +2,36 @@
 
 body {
     font-family: 'Permanent Marker', cursive;
-    background: rgb(212, 207, 200);
+    background: rgb(232, 182, 131);
+}
+
+.nav-ul {
+    list-style-type: none;
+  
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.nav-ul {
+    /* Add basic styles */
+    padding: 10px 20px;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 7%;
+    margin: 10px;
+    transition: background-color 0.3s, color 0.3s; /* Add transition for smooth effect */
+    display: inline-block;
+    text-decoration: none; /* Ensure navigation items don't inherit text-decoration */
+}
+
+.nav-ul:hover {
+    background: #a9eb94; /* Change background color on hover */
+    color: #ffffff; /* Change text color on hover */
+}
+
+.nav-ul:active {
+    color: chartreuse; /* Change text color when clicked */
 }
